@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_init"
+        android:title="Init"
+        />
+    <item android:id="@+id/menu_clear"
+        android:title="clear"
+        />
+</menu>
