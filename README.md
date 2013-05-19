@@ -52,3 +52,11 @@ if(mQype.isLoggedIn()) {
 }
 ```
 
+## Logout
+
+It's important to provide to your users a way to disconnect from Qype and clear locally stored tokens. To do that, you just need to call **logOut()** method on the Qype object.
+
+```java
+// disconnect user
+mQype.logOut();
+```
