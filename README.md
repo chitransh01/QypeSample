@@ -19,7 +19,7 @@
 * Specify the directory where you have unzip the QypeSample downloaded project
 * Click "Finish"
 
-## Step 5 : Add INTERNET permission
+## Add INTERNET permission
 
 If it's not already done in your project, you must add the INTERNET permission in your **AndroidManifest** file. 
 
