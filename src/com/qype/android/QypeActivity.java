@@ -8,8 +8,8 @@ import com.qype.android.sdk.QypeOAuthListener;
 
 public class QypeActivity extends Activity {
 
-	private static final String API_KEY    = "nm4LL0wkllyQL0oVCA0MA";
-	private static final String API_SECRET = "jJVmOSIhN11AnKGm7O0HG1qVmESkhHSo9dFPXQZlFjw";
+	private static final String API_KEY    = "";
+	private static final String API_SECRET = "";
 	
 	private Qype mQype;
 	
