@@ -33,8 +33,7 @@ You need to provide to your users a system to connect to Qype. To do that, you j
 
 ```java
 Qype mQype = new Qype(mContext, QYPE_APP_KEY, QYPE_APP_SECRET);
-		
-viadeo.authorize(new QypeOAuthListener() {
+mQype.authorize(new QypeOAuthListener() {
 	@Override public void onQypeOAuthComplete() {}
 
 	@Override public void onQypeOAuthCancel() {}
