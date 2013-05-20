@@ -20,6 +20,7 @@ import oauth.signpost.exception.OAuthNotAuthorizedException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 
@@ -137,20 +138,28 @@ public class Qype {
 	}
 	
 	public void getAccessTokenAsync(final String verifier) {
-		new Thread(new Runnable() {			
-			public void run() {
+		new AsyncTask<Void, Void, Boolean>() {
+			@Override protected Boolean doInBackground(Void... voids) {
+				boolean success = false;
 				try {
 					mProvider.retrieveAccessToken(mConsumer, verifier);
 					mSettings.edit().putString(ACCESS_TOKEN, mConsumer.getToken()).commit();
 					mSettings.edit().putString(SECRET_TOKEN, mConsumer.getTokenSecret()).commit();
 					System.out.println("token: "+mConsumer.getToken()+", secret: "+mConsumer.getTokenSecret());
-					mListener.onQypeOAuthComplete();					
-				}catch(Exception e) {
-					mListener.onQypeOAuthError(-1, e.getMessage(), QypeConstants.ACCESS_TOKEN_URL);
+					success = true;	
+				}catch(Exception e) {					
 					e.printStackTrace();
 				}
+				return success;
 			}
-		}).run();
+			@Override protected void onPostExecute(Boolean success) {
+				if(success) {
+					mListener.onQypeOAuthComplete();	
+				}else {
+					mListener.onQypeOAuthError(-1, "failed", QypeConstants.ACCESS_TOKEN_URL);
+				}
+			}
+		}.execute();		
 	}
 	
 	/** retrieve the access token and its secret*/
