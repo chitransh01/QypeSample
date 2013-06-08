@@ -1,9 +1,5 @@
 package com.qype.android.sdk;
 
-import oauth.signpost.exception.OAuthCommunicationException;
-import oauth.signpost.exception.OAuthExpectationFailedException;
-import oauth.signpost.exception.OAuthMessageSignerException;
-import oauth.signpost.exception.OAuthNotAuthorizedException;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
